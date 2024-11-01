@@ -11,7 +11,7 @@
             <form method="post" action="/dashboard" enctype="multipart/form-data">
                 @csrf
                 {{-- <input type="text" id="post_content" name="post_content" placeholder="Tuliskan sesuatu..." class="@error('post_content') invalid-input @enderror" required> --}}
-                <textarea name="post_content" id="post_content" cols="30" rows="10"></textarea>
+                <textarea name="post_content" id="post_content" placeholder="Tuliskan Sesuatu..."></textarea>
                 @error('post_content')
                     <div class="invalid-message">
                         <iconify-icon icon="line-md:alert-circle" style="color: #fd6969;" width="24"></iconify-icon>

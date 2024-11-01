@@ -42,7 +42,7 @@
             <button type="submit">Kirim</button>
         </form>
         @foreach ($post->comment as $comment)
-        <div class="comment">
+        <section id="comment" class="comment">
             <div class="nav-comment">
                 @if($comment->user->username == auth()->user()->username)
                     <a href="/dashboard">
@@ -73,7 +73,7 @@
             <div class="post-info">
                 <h6>{{ $comment->created_at->diffForHumans() }}</h6>
             </div>
-        </div>
+        </section>
         @endforeach
     </div>
 </div>

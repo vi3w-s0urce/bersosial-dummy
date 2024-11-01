@@ -39,7 +39,7 @@ class DashboardPostController extends Controller
     {
         $validatedData = $request->validate([
             'post_content' => 'required',
-            'image' => 'image|file|max:20480'
+            'image' => 'image|file|max:10240'
         ]);
 
         if ($request->file('image')) {
@@ -66,6 +66,12 @@ class DashboardPostController extends Controller
      */
     public function edit($post_id)
     {
+        $post = Post::find($post_id);
+
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect()->back()->with('error', 'Anda tidak memiliki akses!');
+        }
+
         return view('dashboard.edit', [
             'post' => Post::find($post_id),
             'title' => 'Buat Postingan'
@@ -74,6 +80,11 @@ class DashboardPostController extends Controller
 
     public function edit_user($user_id)
     {
+
+        if (auth()->user()->id != $user_id) {
+            return redirect()->back()->with('error', 'Anda tidak memiliki akses!');
+        }
+
         return view('dashboard.edit-user', [
             'user' => User::find($user_id),
             'title' => 'Edit user'

@@ -120,6 +120,9 @@ iconify-icon {
 }
 
 .post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     border: solid 1px var(--blue-secondary);
     border-radius: 20px;
     padding: 20px;
@@ -134,12 +137,12 @@ iconify-icon {
 }
 
 .post-content p {
-    white-space: pre-line
+    white-space: pre-line;
 }
 
 .post-content img {
+    max-width: 100%;
     width: 100%;
-    margin-top: 10px;
     border: solid 1px var(--secondary-color);
     border-radius: 20px;
     object-fit: cover;
@@ -149,11 +152,12 @@ iconify-icon {
     display: flex;
     margin-top: 10px;
     align-items: center;
-    color: var(--secondary-color);
+    justify-content: space-between;
 }
 
 .post-info h6 {
     font-weight: normal;
+    color: var(--secondary-color);
 }
 
 .profile-container {
@@ -235,6 +239,8 @@ iconify-icon {
     border: solid 1px var(--secondary-color);
     padding: 30px 50px;
     border-radius: 20px;
+    max-width: 432px;
+    width: 100%;
 }
 
 .login-title p {
@@ -254,13 +260,14 @@ iconify-icon {
 .form-login input {
     font-family: var(--font-primary);
     font-size: 18px;
-    border: solid 1px var(--blue-secondary);
+    border: solid 1px var(--secondary-color);
     border-radius: 20px;
     padding: 10px 20px;
     width: 100%;
 }
 
 .form-login input:focus {
+    border: solid 1px var(--blue-primary);
     outline: none;
 }
 

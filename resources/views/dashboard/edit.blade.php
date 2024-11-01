@@ -3,7 +3,7 @@
 @section('content')
     <div>
         <div class="top-nav">
-            <a href="/"><iconify-icon icon="line-md:chevron-left" style="color: #abb1bb;" width="48"></iconify-icon></a>
+            <a href="/dashboard"><iconify-icon icon="line-md:chevron-left" style="color: #abb1bb;" width="48"></iconify-icon></a>
             <h1>{{ "@" . auth()->user()->username }}</h1>
         </div>
         <div class="create-post">
@@ -11,7 +11,8 @@
             <form method="post" action="/dashboard/{{ $post->id }}">
                 @method('put')
                 @csrf
-                <input type="text" id="post_content" name="post_content" placeholder="Tuliskan sesuatu..." class="@error('post_content') invalid-input @enderror" value="{{ old('post_content', $post->post_content) }}" required>
+                {{-- <input type="text" id="post_content" name="post_content" placeholder="Tuliskan sesuatu..." class="@error('post_content') invalid-input @enderror" value="{{ old('post_content', $post->post_content) }}" required> --}}
+                <textarea name="post_content" id="post_content">{{ old('post_content', $post->post_content) }}</textarea>
                 @error('post_content')
                     <div class="invalid-message">
                         <iconify-icon icon="line-md:alert-circle" style="color: #fd6969;" width="24"></iconify-icon>

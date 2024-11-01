@@ -34,6 +34,9 @@
             </a>
             <div class="post-info">
                 <h6>{{ $post->created_at->diffForHumans() }}</h6>
+                <div>
+                    <a href="/posts/{{ $post->id }}/#comment"><iconify-icon icon="iconamoon:comment" width="30"></iconify-icon></a>
+                </div>
             </div>
         </div>
     @endforeach
